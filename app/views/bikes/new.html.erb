@@ -1,2 +1,12 @@
 <h1>Bikes#new</h1>
 <p>Find me in app/views/bikes/new.html.erb</p>
+
+<p>Here we want a form to upload a new bike:</p>
+<ol>
+<li>Type: Adult, Child</li>
+<li>Category: Bakfiets, Racefiets, Mountain-bike, E-bike, Omafiets, Tandem, Ligfiets, Unicycle, Tourfiets</li>
+<li>Colour: White, Black, Green, Blue, Pink, Red, Purple, Yellow, Brown, Grey</li>
+<li>Location: address of bike</li>
+</ol>
+
+<%= render "form", bike: @bike %>
