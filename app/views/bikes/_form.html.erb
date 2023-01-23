@@ -1,7 +1,8 @@
 <%= simple_form_for(bike) do |f| %>
-  <%= f.input :type %>
-  <%= f.input :category %>
-  <%= f.input :color %>
-  <%= f.input :location %>
+  <%# <%= f.input :photo, as: :file %>
+  <%= f.input :type, :collection => ["Adult", "Child"], :input_html => {:class => 'selectpicker'}, :label => 'Bike Type', prompt: "Choose From List" %>
+  <%= f.input :category, :collection => ["Bakfiets", "Racefiets", "Mountain-bike", "E-bike", "Omafiets", "Tandem", "Ligfiets", "Unicycle", "Tourfiets"], :input_html => {:class => 'selectpicker'}, :label => 'Bike Category', prompt: "Choose From List" %>
+  <%= f.input :color, :collection => %w[White Black Green Blue Pink Red Purple Yellow Brown Grey], :input_html => {:class => 'selectpicker'}, :label => 'Colour' %>
+  <%= f.input :location, :label => "Bike's location (Address)"%>
   <%= f.submit %>
 <% end %>
