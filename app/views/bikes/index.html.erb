@@ -1,2 +1,9 @@
 <h1>Bikes#index</h1>
 <p>Find me in app/views/bikes/index.html.erb</p>
+
+<h1>All Bikes</h1>
+  <ul>
+    <% @bikes.each do |bike| %>
+      <li> <%= bike %></li>
+    <% end %>
+  </ul>
