@@ -2,7 +2,7 @@
   <div class="container">
     <h1><strong>RideMyBike</strong></h1>
     <p>Bike like a real local in Amsterdam</p>
-    <%= link_to "Book now", "#", class: "btn btn-flat" %>
+    <%= link_to "Book now", bikes_path, class: "btn btn-flat" %>
   </div>
 </div>
 
@@ -15,8 +15,7 @@
    <% @bikes.each do |bike| %>
     <div class="card-bike col-12 col-m-4 col-lg-4 col-xl-3">
       <% image = bike.photo.key.to_s %>
-        <%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
-      <%# <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" /> %>
+        <%= link_to cl_image_tag(image, height: 300, width: 400, crop: :fill), bike %>
     <div class="card-bike-infos">
       <div>
         <h2><%= bike.name %></h2>
