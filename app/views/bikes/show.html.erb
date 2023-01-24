@@ -1,24 +1,25 @@
 <div class="container">
-<p>(Bikes#show --> Find me in app/views/bikes/show.html.erb)</p>
-</div>
-
-
-<div class="container">
-<h1> <%= @bike.name %></h1>
-<% image = @bike.photo.key.to_s %>
-<%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
-
-<p>Owner:<%= @bike.user.first_name %></p>
-<p>Current location: <%= @bike.location %></p>
-<p>Bike category:  <%= @bike.category.name %></p>
-<p>Adult/Child:  <%= @bike.biketype.name %></p>
-<p>Color:  <%= @bike.color.name %></p>
-
-
-<%= link_to "Delete this bike",
-  bike_path(@bike),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-<%= link_to "Edit this bike", edit_bike_path %>
-<%= link_to "Back to all my bikes", bikes_path %>
+  <div class="text-center">
+    <div class="card align-items-center hug-content">
+      <div class="card-header card-title">
+        <%= @bike.name %>
+      </div>
+      <% image = @bike.photo.key.to_s %>
+      <%=cl_image_tag(image, height: 350, width: 450, crop: :pad, class: "card-image-top")%>
+      <div class="card-body">
+        <p class="card-text">Owner of this bike:<strong> <%= @bike.user.first_name%> <%= @bike.user.last_name %></strong></p>
+        <p class="card-text">Current location:<strong> <%= @bike.location %></strong></p>
+        <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
+        <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
+        <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
+        <div class="card-footer bg-transparent btn-group" role="group" aria-label="Basic example">
+        <%= link_to "Delete this bike",
+          bike_path(@bike), class:"btn btn-outline-info",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <%= link_to "Edit this bike", edit_bike_path, class:"btn btn-outline-info"%>
+        <%= link_to "Back to all my bikes", bikes_path, class:"btn btn-outline-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
