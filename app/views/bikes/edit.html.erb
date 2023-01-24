@@ -1,2 +1,13 @@
-<h1>Bikes#edit</h1>
-<p>Find me in app/views/bikes/edit.html.erb</p>
+<%# <h1>Bikes#edit</h1>
+<p>Find me in app/views/bikes/edit.html.erb</p> %>
+
+<div class="container mt-5">
+  <h1>Edit bike</h1>
+
+  <%= render "form", bike: @bike %>
+
+  <hr>
+  <%= link_to bikes_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to index
+  <% end %>
+</div>
