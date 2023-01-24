@@ -2,9 +2,8 @@
 <p>Find me in app/views/bikes/index.html.erb</p>
 
 <h1>All Bikes</h1>
-  <ul>
+  <ol>
     <% @bikes.each do |bike| %>
-      <li> <%= bike %></li>
+      <li>Your "<%= bike.name %>" is parked at: <%= bike.location%></li>
     <% end %>
-  </ul>
-
+  </ol>
