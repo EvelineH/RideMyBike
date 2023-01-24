@@ -4,7 +4,7 @@ class Bike < ApplicationRecord
   belongs_to :category
   belongs_to :color
   has_many :users, through: :bookings
-  has_one_attatched :photo
+  has_one_attached :photo
 
   validates :name, presence: true
 end
