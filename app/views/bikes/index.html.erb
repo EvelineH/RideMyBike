@@ -10,6 +10,7 @@
         <li>current location:<%= bike.location%></li>
         <li><a href="/edit_bike">Edit this bike</a></li>
       </ul>
+      <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
 </div>
 

@@ -4,5 +4,6 @@
   <%= f.association :category %>
   <%= f.association :color %>
   <%= f.input :location, :label => "Bike's location (Address)"%>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

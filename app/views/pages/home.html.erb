@@ -12,7 +12,24 @@
 </div>
 
  <div class="row">
-  <div class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
+   <% @bikes.each do |bike| %>
+    <div class="card-bike col-12 col-m-6 col-lg-3 col-xl-3">
+      <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
+    <div class="card-bike-infos">
+      <div>
+        <h2><%= bike.name %></h2>
+        <p>Bike category:  <%= bike.category.name %></p>
+        <p>Adult/Child:  <%= bike.biketype.name %></p>
+        <p>Color:  <%= bike.color.name %></p>
+      </div>
+      <h2 class="card-bike-pricing">€10 per dag</h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-bike-user avatar-bordered" />
+    </div>
+    </div>
+  <% end %>
+  </div>
+
+  <%# <div class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
     <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
     <div class="card-trip-infos">
       <div>
@@ -45,16 +62,5 @@
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
-  <div class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
-    <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <h2>Bakfiets</h2>
-        <p>Easy for kids and dogs</p>
-      </div>
-      <h2 class="card-trip-pricing">€10 per dag</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-    </div>
-  </div>
-  </div>
-</div>
+  </div> %>
+<%# </div> %>
