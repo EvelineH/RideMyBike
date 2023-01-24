@@ -1,4 +1,6 @@
 class BikesController < ApplicationController
+  before_action :set_bike, only: [:show, :edit, :update, :destroy]
+
   def index
     @bikes = Bike.all
   end
@@ -27,12 +29,18 @@ class BikesController < ApplicationController
   end
 
   def update
+    @bike.update(bike_params)
+    redirect_to bike_path(@bike)
   end
 
   def destroy
   end
 
   private
+
+  def set_bike
+    @bike = Bike.find(params[:id])
+  end
 
   def bike_params
     params.require(:bike).permit(:name, :biketype_id, :category_id, :color_id, :location, :photo)
