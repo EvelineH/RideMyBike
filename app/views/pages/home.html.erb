@@ -7,14 +7,16 @@
 </div>
 
 <div class="container py-5">
-<div class="d-flex align-items-center justify-content-between">
-<h3 class="mb-0">Available bikes:</h3>
-</div>
+  <div class="d-flex align-items-center justify-content-between">
+  <h3 class="mb-0">Available bikes:</h3>
+  </div>
 
  <div class="row">
    <% @bikes.each do |bike| %>
-    <div class="card-bike col-12 col-m-6 col-lg-3 col-xl-3">
-      <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
+    <div class="card-bike col-12 col-m-4 col-lg-4 col-xl-3">
+      <% image = bike.photo.key.to_s %>
+        <%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
+      <%# <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" /> %>
     <div class="card-bike-infos">
       <div>
         <h2><%= bike.name %></h2>
@@ -28,6 +30,7 @@
     </div>
   <% end %>
   </div>
+</div>
 
   <%# <div class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
     <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
