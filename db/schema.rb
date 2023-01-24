@@ -10,31 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_092238) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_102005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
-    t.string "type"
-    t.string "category"
-    t.string "color"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "type_id", null: false
     t.bigint "category_id", null: false
     t.bigint "color_id", null: false
     t.bigint "biketype_id", null: false
+    t.string "name"
     t.index ["biketype_id"], name: "index_bikes_on_biketype_id"
     t.index ["category_id"], name: "index_bikes_on_category_id"
     t.index ["color_id"], name: "index_bikes_on_color_id"
-    t.index ["type_id"], name: "index_bikes_on_type_id"
     t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
   create_table "biketypes", force: :cascade do |t|
-    t.string "biketype"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,13 +48,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_092238) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "category"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "colors", force: :cascade do |t|
-    t.string "color"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_092238) do
   end
 
   add_foreign_key "bikes", "biketypes"
-  add_foreign_key "bikes", "biketypes", column: "type_id"
   add_foreign_key "bikes", "categories"
   add_foreign_key "bikes", "colors"
   add_foreign_key "bikes", "users"

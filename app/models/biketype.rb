@@ -1,3 +1,3 @@
 class Biketype < ApplicationRecord
-has_many :bikes
+  has_many :bikes
 end
