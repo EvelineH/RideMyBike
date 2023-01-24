@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Biketype.create(bike_type: "Adult")
-Biketype.create(bike_type: "Child")
+Biketype.create(biketype: "Adult")
+Biketype.create(biketype: "Child")
 
 Category.create(category: "Bakfiets")
 Category.create(category: "Racefiets")
