@@ -1,30 +1,30 @@
-.card-trip {
+.card-bike {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 12px;
 }
 
-.card-trip > img {
+.card-bike > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
-  font-size: 16px;
+.card-bike h2 {
+  font-size: 18px;
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 5px;
 }
 
-.card-trip p {
+.card-bike p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-trip .card-trip-infos {
+.card-bike .card-bike-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -32,7 +32,7 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-bike-infos .card-bike-user {
   position: absolute;
   right: 16px;
   top: -20px;
