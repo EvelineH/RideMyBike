@@ -2,7 +2,6 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 12px;
 }
 
 .card-bike > img {
@@ -13,6 +12,12 @@
 
 .card-bike h2 {
   font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-bike h3 {
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -37,4 +42,14 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.bike_link {
+  text-decoration: none;
+  color: black
+}
+
+.bike_link:hover {
+  text-decoration: none;
+  color: black
 }
