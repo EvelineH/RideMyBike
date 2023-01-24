@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_23_151823) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_092238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_151823) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "type_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "color_id", null: false
+    t.bigint "biketype_id", null: false
+    t.index ["biketype_id"], name: "index_bikes_on_biketype_id"
+    t.index ["category_id"], name: "index_bikes_on_category_id"
+    t.index ["color_id"], name: "index_bikes_on_color_id"
+    t.index ["type_id"], name: "index_bikes_on_type_id"
     t.index ["user_id"], name: "index_bikes_on_user_id"
+  end
+
+  create_table "biketypes", force: :cascade do |t|
+    t.string "biketype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -35,6 +49,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_151823) do
     t.datetime "updated_at", null: false
     t.index ["bike_id"], name: "index_bookings_on_bike_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +78,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_151823) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bikes", "biketypes"
+  add_foreign_key "bikes", "biketypes", column: "type_id"
+  add_foreign_key "bikes", "categories"
+  add_foreign_key "bikes", "colors"
   add_foreign_key "bikes", "users"
   add_foreign_key "bookings", "bikes"
   add_foreign_key "bookings", "users"
