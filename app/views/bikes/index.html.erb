@@ -2,8 +2,27 @@
 <p>Find me in app/views/bikes/index.html.erb</p>
 
 <h1>All Bikes</h1>
-  <ol>
+
+<div class= "bike-index">
     <% @bikes.each do |bike| %>
-      <li>Your "<%= bike.name %>" is parked at: <%= bike.location%></li>
+      <ul class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
+        <li><%= bike.name %> </li>
+        <li>current location:<%= bike.location%></li>
+        <li><a href="/edit_bike">Edit this bike</a></li>
+      </ul>
     <% end %>
-  </ol>
+</div>
+
+<div class="row">
+  <div class="card-trip col-12 col-m-6 col-lg-3 col-xl-3">
+    <img src="https://images.peerby.com/unsafe/800x/smart/https://peerby.s3.amazonaws.com/uploads/listings/724231cd-b126-4ad6-a06b-fe937e826b87.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= bike.name %></h2>
+          <p>current location:<%= bike.location%></p>
+        </div>
+        <h2 class="card-trip-pricing"><a href="/edit_bike">Edit this bike</a></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+  </div>
+</div>
