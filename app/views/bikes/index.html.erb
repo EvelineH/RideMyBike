@@ -4,6 +4,6 @@
 <h1>All Bikes</h1>
   <ol>
     <% @bikes.each do |bike| %>
-      <li>Your "<%= bike.name %>" is parked at: <%= bike.location%></li>
+      <li>Your "<%= bike.name %>" is parked at: <%= bike.location%> <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill %></li>
     <% end %>
   </ol>
