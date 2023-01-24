@@ -1,4 +1,7 @@
 class Bike < ApplicationRecord
   belongs_to :user
+  belongs_to :type
+  belongs_to :category
+  belongs_to :color
   has_many :users, through: :bookings
 end
