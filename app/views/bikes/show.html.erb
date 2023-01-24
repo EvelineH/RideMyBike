@@ -1,4 +1,24 @@
 <div class="container">
-<h1>Bikes#show</h1>
-<p>Find me in app/views/bikes/show.html.erb</p>
+<p>(Bikes#show --> Find me in app/views/bikes/show.html.erb)</p>
+</div>
+
+
+<div class="container">
+<h1> <%= @bike.name %></h1>
+<% image = @bike.photo.key.to_s %>
+<%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
+
+<p>Owner:<%= @bike.user.first_name %></p>
+<p>Current location: <%= @bike.location %></p>
+<p>Bike category:  <%= @bike.category.name %></p>
+<p>Adult/Child:  <%= @bike.biketype.name %></p>
+<p>Color:  <%= @bike.color.name %></p>
+
+
+<%= link_to "Delete this bike",
+  bike_path(@bike),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<%= link_to "Edit this bike", edit_bike_path %>
+<%= link_to "Back to all my bikes", bikes_path %>
 </div>

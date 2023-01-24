@@ -6,8 +6,11 @@
 <div class="row">
   <% @bikes.each do |bike| %>
     <div class="card-bike col-12 col-m-6 col-lg-3 col-xl-3">
-      <% image = bike.photo.key.to_s %>
-      <%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
+      <%= link_to bike_path(bike.id) do %>
+        <% image = bike.photo.key.to_s %>
+        <%= cl_image_tag(image, height: 300, width: 400, crop: :fill) %>
+      <% end %>
+
       <div class="card-bike-infos">
         <div>
           <h2> <%= bike.name %> </h2>
