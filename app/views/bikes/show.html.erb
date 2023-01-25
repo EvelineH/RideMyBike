@@ -1,25 +1,30 @@
-<div class="container">
-  <div class="text-center">
-    <div class="card align-items-center hug-content">
-      <div class="card-header card-title">
-        <%= @bike.name %>
+<div class="">
+  <div class="card mx-auto" style="width: 80%;">
+    <div class="show-grid">
+      <div class= "mx-auto grid-item"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
       <% image = @bike.photo.key.to_s %>
-      <%=cl_image_tag(image, height: 350, width: 450, crop: :pad, class: "card-image-top")%>
-      <div class="card-body">
-        <p class="card-text">Owner of this bike:<strong> <%= @bike.user.first_name%> <%= @bike.user.last_name %></strong></p>
-        <p class="card-text">Current location:<strong> <%= @bike.location %></strong></p>
-        <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
-        <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
-        <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
-        <div class="card-footer bg-transparent btn-group" role="group" aria-label="Basic example">
-        <%= link_to "Delete this bike",
-          bike_path(@bike), class:"btn btn-outline-info",
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        <%= link_to "Edit this bike", edit_bike_path, class:"btn btn-outline-info"%>
-        <%= link_to "Back to all my bikes", bikes_path, class:"btn btn-outline-info" %>
-        </div>
-      </div>
+      <%=cl_image_tag(image, crop: :limit, class: "grid-item")%>
+    </div>
+    <div class="card-body">
+      <h1><%= @bike.name %> of <%= @bike.user.first_name%> <%= @bike.user.last_name %></h1>
+      <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
+      <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
+      <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
+    </div>
+      <%# <div class="bg-transparent btn-group" role="group" aria-label="Basic example"> %>
+      <%# <%= link_to "Delete this bike",
+        bike_path(@bike), class:"btn btn-outline-info",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      <%# <%= link_to "Edit this bike", edit_bike_path, class:"btn btn-outline-info"%>
+      <%# <%= link_to "Back to all bikes", bikes_path, class:"btn btn-outline-info btn-block" %>
+      <%# </div> %>
+    <%# <div class="show-grid"> %>
+      <%= link_to "Book this bike", bikes_path, class:"btn btn-info grid-item" %>
+      <%= link_to "Back to all bikes", bikes_path, class:"btn btn-warning grid-item" %>
     </div>
   </div>
 </div>

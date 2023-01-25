@@ -45,25 +45,25 @@ Color.create(name: "Grey") # 10
 ######################################
 # BIKES #
 # white bike #
-white_bike = Bike.new(name: "Witte racefiets", location: "Raamgracht 6a, 1011KK Amsterdam", biketype_id: 1, category_id: 2, color_id: 1, user_id: 2)
+white_bike = Bike.new(name: "Witte racefiets", address: "Raamgracht 6a, Amsterdam", biketype_id: 1, category_id: 2, color_id: 1, user_id: 2)
 # black bike #
-black_bike = Bike.new(name: "Zwarte omafiets", location: "Stationsplein 50, 1012AB Amsterdam", biketype_id: 1, category_id: 5, color_id: 2, user_id: 1)
+black_bike = Bike.new(name: "Zwarte omafiets", address: "Stationsplein 50, Amsterdam", biketype_id: 1, category_id: 5, color_id: 2, user_id: 1)
 # green bike #
-green_bike = Bike.new(name: "Groene E-bike", location: "Van Ostadestraat 190C, 1072TH Amsterdam", biketype_id: 1, category_id: 4, color_id: 3, user_id: 3)
+green_bike = Bike.new(name: "Groene E-bike", address: "Van Ostadestraat 190C, Amsterdam", biketype_id: 1, category_id: 4, color_id: 3, user_id: 3)
 # blue bike #
-blue_bike = Bike.new(name: "Blauwe bakfiets", location: "Weesperstraat 61, 1018 VN Amsterdam", biketype_id: 1, category_id: 1, color_id: 4, user_id: 2)
+blue_bike = Bike.new(name: "Blauwe bakfiets", address: "Weesperstraat 61, Amsterdam", biketype_id: 1, category_id: 1, color_id: 4, user_id: 2)
 # pink bike #
-pink_bike = Bike.new(name: "Roze tandem", location: "Rozenstraat, 1016PA Amsterdam", biketype_id: 1, category_id: 6, color_id: 5, user_id: 1)
+pink_bike = Bike.new(name: "Roze tandem", address: "Rozenstraat, Amsterdam", biketype_id: 1, category_id: 6, color_id: 5, user_id: 1)
 # red bike #
-red_bike = Bike.new(name: "Rode mountain-bike", location: "Hannie Dankbaarpassage 47, 1053RT Amsterdam", biketype_id: 2, category_id: 3, color_id: 6, user_id: 2)
+red_bike = Bike.new(name: "Rode mountain-bike", address: "Hannie Dankbaarpassage 47, Amsterdam", biketype_id: 2, category_id: 3, color_id: 6, user_id: 2)
 # purple bike #
-purple_bike = Bike.new(name: "Paarse ligfiets", location: "Tweede Helmersstraat 63, 1054AW Amsterdam", biketype_id: 1, category_id: 7, color_id: 7, user_id: 3)
+purple_bike = Bike.new(name: "Paarse ligfiets", address: "Tweede Helmersstraat 63, Amsterdam", biketype_id: 1, category_id: 7, color_id: 7, user_id: 3)
 # yellow_bike #
-yellow_bike = Bike.new(name: "Yellow unicycle", location: "Kerkstraat 198, 1017GV Amsterdam", biketype_id: 2, category_id: 8, color_id: 8, user_id: 3)
+yellow_bike = Bike.new(name: "Yellow unicycle", address: "Kerkstraat 198, Amsterdam", biketype_id: 2, category_id: 8, color_id: 8, user_id: 3)
 # brown bike #
-brown_bike = Bike.new(name: "Brown Touringbike", location: "Distelweg 83, 1031HD Amsterdam", biketype_id: 1, category_id: 9, color_id: 9, user_id: 2)
+brown_bike = Bike.new(name: "Brown Touringbike", address: "Distelweg 83, Amsterdam", biketype_id: 1, category_id: 9, color_id: 9, user_id: 2)
 # grey_bike #
-grey_bike = Bike.new(name: "Grey Granny's Bike", location: "Ketelstraat 3, 1021JX Amsterdam", biketype_id: 1, category_id: 5, color_id: 10, user_id: 1)
+grey_bike = Bike.new(name: "Grey Granny's Bike", address: "Ketelstraat 3, Amsterdam", biketype_id: 1, category_id: 5, color_id: 10, user_id: 1)
 ###############################################
 # IMAGES #
 # white racefiets x

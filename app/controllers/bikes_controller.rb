@@ -3,9 +3,22 @@ class BikesController < ApplicationController
 
   def index
     @bikes = Bike.all
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
   end
 
   def show
+    @bikes = Bike.all
+    @markers = [{
+      lat: @bike.latitude,
+      lng: @bike.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {bike: @bike}),
+      marker_html: render_to_string(partial: "marker")
+    }]
   end
 
   def new
