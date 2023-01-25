@@ -8,9 +8,15 @@ class BikesController < ApplicationController
         lat: bike.latitude,
         lng: bike.longitude
       }
+    end
   end
 
   def show
+    @bikes = Bike.all
+    @markers = [{
+      lat: @bike.latitude,
+      lng: @bike.longitude
+    }]
   end
 
   def new

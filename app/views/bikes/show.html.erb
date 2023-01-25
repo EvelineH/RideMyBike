@@ -1,14 +1,18 @@
 <div class="container">
   <div class="text-center">
     <div class="card align-items-center hug-content">
-      <div class="card-header card-title">
+      <div class="card-title">
         <%= @bike.name %>
       </div>
       <% image = @bike.photo.key.to_s %>
       <%=cl_image_tag(image, height: 350, width: 450, crop: :pad, class: "card-image-top")%>
       <div class="card-body">
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         <p class="card-text">Owner of this bike:<strong> <%= @bike.user.first_name%> <%= @bike.user.last_name %></strong></p>
-        <p class="card-text">Current location:<strong> <%= @bike.location %></strong></p>
+        <p class="card-text">Current location:<strong> <%= @bike.address %></strong></p>
         <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
         <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
         <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
