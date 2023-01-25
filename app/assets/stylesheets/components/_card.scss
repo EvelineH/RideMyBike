@@ -60,3 +60,43 @@
   text-decoration: none;
   color: black
 }
+
+// # Card styling for Bikes-indexpage below
+// #########################################################################
+.card-bike-index {
+  overflow: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  // display: block;
+  height: auto;
+  min-height: 100% !important;
+}
+
+.card-bike-list {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.card-header {
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.card-bike-index img {
+  height: 250px;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.card-footer {
+  text-align: center;
+  align-content: flex-end;
+}
+
+.card-bike-index h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
