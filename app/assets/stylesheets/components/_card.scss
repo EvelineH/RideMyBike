@@ -2,12 +2,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
 }
 
-.card-bike > img {
-  height: 200px;
+.card-bike img {
+  height: 150px;
   width: 100%;
   object-fit: cover;
+  opacity: 0.9;
 }
 
 .card-bike h2 {
@@ -17,6 +19,7 @@
 }
 
 .card-bike h3 {
+  text-align: center;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 5px;
