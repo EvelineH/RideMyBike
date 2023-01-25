@@ -1,9 +1,18 @@
 // Specific CSS for your home-page
+body {
+  background-color: #F8FAEF;
+}
+
+h3 {
+ font-weight: bold;
+}
 
 .banner {
+  width: 100%;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  margin-bottom: 40px;
 }
 
 .banner h1 {

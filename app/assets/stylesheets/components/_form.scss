@@ -1,0 +1,14 @@
+// Here is the styling of the form in RideMyBike/app/views/bikes/_form.html.erb
+
+.new_bike {
+  background-color: white;
+  width: 50%;
+  margin: 50px auto;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+}

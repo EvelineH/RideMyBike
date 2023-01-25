@@ -1,9 +1,32 @@
+<%# Change this form's styling in RideMyBike/app/assets/stylesheets/components/_form.scss %>
+
 <%= simple_form_for(@bike) do |f| %>
-  <%= f.input :name, :label => "Give your bike a name" %>
-  <%= f.association :biketype %>
-  <%= f.association :category %>
-  <%= f.association :color %>
-  <%= f.input :location, :label => "Bike's location (Address)"%>
+<h1>Add your bike</h1>
+  <div class="input">
+    <%= f.input :name, :label => "Name of this bike", :placeholder => "Give your bike a fun name" %>
+  </div>
+
+    <div class="input">
+  <%= f.input :location, :label => "Bike's location (Address)", :placeholder => "Where is your bike parked now?" %>
+  </div>
+
+  <div class="input">
+  <%= f.association :biketype, :placeholder => "Give your bike a fun name" %>
+  </div>
+
+  <div class="input">
+  <%= f.association :category, :placeholder => "Give your bike a fun name" %>
+  </div>
+
+  <div class="input">
+  <%= f.association :color, :placeholder => "Give your bike a fun name" %>
+  </div>
+
+  <div class="input">
   <%= f.input :photo, as: :file %>
+  </div>
+
   <%= f.submit %>
+
 <% end %>
+
