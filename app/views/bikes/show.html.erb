@@ -2,6 +2,7 @@
   <div class="card mx-auto" style="width: 80%;">
     <div class="show-grid">
       <div class= "mx-auto grid-item"
+        style="height: 100%; width: 100%"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -23,8 +24,7 @@
       <%# <%= link_to "Back to all bikes", bikes_path, class:"btn btn-outline-info btn-block" %>
       <%# </div> %>
     <%# <div class="show-grid"> %>
-      <%= link_to "Book this bike", bikes_path, class:"btn btn-info grid-item" %>
-      <%= link_to "Back to all bikes", bikes_path, class:"btn btn-warning grid-item" %>
-    </div>
+      <%= link_to "Book this bike", bikes_path, class:"btn btn-show mx-auto" %>
+      <%= link_to "Back to all bikes", bikes_path, class:"btn btn-show-back mx-auto" %>
   </div>
 </div>
