@@ -27,6 +27,13 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking.status = params[:status]
+    @booking.save
+  end
+
+  def accept
+    @booking.status = params[:status]
+    @booking.save
   end
 
   private
