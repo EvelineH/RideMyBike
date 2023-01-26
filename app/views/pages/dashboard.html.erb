@@ -1,7 +1,36 @@
-<div class="container">
+<div class="container text-center">
   <h1>HI I AM YOUR DASHBOARD PAGE</h1>
-
-  
+  <h2> Your Bike Listings</h2>
+  <div class="index-container">
+    <div class="cards">
+      <% @owned_bikes.each do |bike| %>
+          <div class="card-bike-index">
+            <h2 class="card-header"><%= bike.name %></h2>
+            <div class="p-2">
+              <% image = bike.photo.key.to_s %>
+              <%= cl_image_tag(image, crop: :scale, class: "card-image-top") %>
+              <ul class="card-bike-list">
+                <li><%= bike.category.name%></li>
+                <li>Suitable for:  <%= bike.biketype.name%></li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <%= link_to bike, class: "bike_link" do %>
+                <button type="button" class="btn btn-show btn-card btn-block">Edit your bike</button>
+              <% end %>
+              <%= link_to bike, class: "bike_link" do %>
+              <button type="button" class="btn btn-show-back btn-card btn-block">Delete your bike</button>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div id="map" style="height: 60vh"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json%>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+    </div>
+  </div>
   <%# <%= link_to “Accept”, booking_path(booking, status: true), data: {turbo_method: :patch}%>
   <%# <%= link_to “Decline”, booking_path(booking, status: false), data: {turbo_method: :patch}%>
 </div>
