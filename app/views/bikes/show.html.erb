@@ -23,6 +23,8 @@
       <%# <%= link_to "Back to all bikes", bikes_path, class:"btn btn-outline-info btn-block" %>
       <%# </div> %>
     <%# <div class="show-grid"> %>
-      <%= link_to "Book this bike", bikes_path, class:"btn btn-show mx-auto" %>
-      <%= link_to "Back to all bikes", bikes_path, class:"btn btn-show-back mx-auto" %>
+      <%# <%= link_to "Book this bike", new_bike_booking_path(@bike), class:"btn btn-show mx-auto" %>
+      <%# <%= link_to "Back to all bikes", bikes_path, class:"btn btn-show-back mx-auto" %>
+      <%= render "bookings/form", booking: @booking %>
+      <%= render "shared/flashes" %>
 </div>
