@@ -1,5 +1,4 @@
-<div class="">
-  <div class="card mx-auto" style="width: 80%;">
+<div class="container py-5">
     <div class="show-grid">
       <div class= "mx-auto grid-item"
         style="height: 100%; width: 100%"
@@ -8,7 +7,7 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
       <% image = @bike.photo.key.to_s %>
-      <%=cl_image_tag(image, crop: :limit, class: "grid-item")%>
+      <%=cl_image_tag(image, crop: :lpad, class: "grid-item")%>
     </div>
     <div class="card-body">
       <h1><%= @bike.name %> of <%= @bike.user.first_name%> <%= @bike.user.last_name %></h1>
@@ -26,5 +25,4 @@
     <%# <div class="show-grid"> %>
       <%= link_to "Book this bike", bikes_path, class:"btn btn-show mx-auto" %>
       <%= link_to "Back to all bikes", bikes_path, class:"btn btn-show-back mx-auto" %>
-  </div>
 </div>
