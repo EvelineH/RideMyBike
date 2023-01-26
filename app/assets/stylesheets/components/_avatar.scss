@@ -1,7 +1,13 @@
 .avatar {
   width: 40px;
+  // border: solid 2px;
   border-radius: 50%;
+  background-color: #b3b3b375
 }
+.avatar.logged-in {
+  background-color: #A44A3F;
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
