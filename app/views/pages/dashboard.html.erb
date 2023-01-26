@@ -1,5 +1,13 @@
 <div class="container text-center">
   <h1>HI I AM YOUR DASHBOARD PAGE</h1>
+  <h2>Your Bike Bookings</h2>
+  <div class="index-container">
+    <p> Hello I want be a container with cards that list the bikes you've booked</p>
+  </div>
+  <h2>Pending Booking Requests</h2>
+  <div class="index-container">
+    <p> Hello I will be a container with cards that list the bookings that you need to accept</p>
+  </div>
   <h2> Your Bike Listings</h2>
   <div class="index-container">
     <div class="cards">
@@ -25,11 +33,11 @@
           </div>
       <% end %>
     </div>
-    <div id="map" style="height: 60vh"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json%>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
-    </div>
+    <%# <div id="map" style="height: 60vh" %>
+      <%# data-controller="map" %>
+      <%# data-map-markers-value="<%= @markers.to_json"%>
+      <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']"%>
+    <%# </div> %>
   </div>
   <%# <%= link_to “Accept”, booking_path(booking, status: true), data: {turbo_method: :patch}%>
   <%# <%= link_to “Decline”, booking_path(booking, status: false), data: {turbo_method: :patch}%>
