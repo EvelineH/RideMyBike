@@ -1,0 +1,13 @@
+<%= simple_form_for [@booking, @bike] do |f| %>
+<h1>Book this bike</h1>
+  <div class="input">
+    <%= f.input :start_date, as: :date, :label => "Start date" %>
+  </div>
+
+    <div class="input">
+  <%= f.input :end_date, as: :date, :label => "End date" %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
