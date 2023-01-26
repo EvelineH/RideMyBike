@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :bookings
   # bookings the user has received on the Bikes they've uploaded:
   has_many :received_bookings, through: :bikes, source: :user
+  has_one_attached :photo
 end
