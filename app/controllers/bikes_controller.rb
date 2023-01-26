@@ -49,6 +49,8 @@ class BikesController < ApplicationController
   end
 
   def destroy
+    @bike.destroy
+    redirect_to dashboard_path, status: :see_other
   end
 
   private

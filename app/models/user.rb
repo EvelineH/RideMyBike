@@ -7,5 +7,5 @@ class User < ApplicationRecord
   # bookings the User has made on someone else's bikes:
   has_many :bookings
   # bookings the user has received on the Bikes they've uploaded:
-  has_many :received_bookings, through: :bikes, source: :bookings
+  has_many :received_bookings, through: :bikes, source: :user
 end
