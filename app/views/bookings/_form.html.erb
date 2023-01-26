@@ -1,4 +1,4 @@
-<%= simple_form_for(@booking) do |f| %>
+<%= simple_form_for [@booking, @bike] do |f| %>
 <h1>Book this bike</h1>
   <div class="input">
     <%= f.input :start_date, as: :date, :label => "Start date" %>
