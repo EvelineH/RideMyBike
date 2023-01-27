@@ -23,7 +23,7 @@
             <% image = bike.photo.key %>
             <%=cl_image_tag(image, crop: :fill, style: "height: 300px; width: 100%; object-fit: cover")%>
           <% else %>
-            <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :fill, style: "height: 300px; width: 100%; object-fit: cover")%>
+            <%= image_tag("no_photo_placeholder.jpg", crop: :fill, style: "height: 300px; width: 100%; object-fit: cover")%>
           <% end %>
         </div>
         <div class="card-bike-infos">
