@@ -1,2 +1,23 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="container-form container">
+  <div>
+    <h1> !! Form doesn't save updated dates yet !! <h1>
+  </div>
+  <%= simple_form_for [@booking] do |f| %>
+    <h1>Edit booking</h1>
+
+    <div class="input">
+      <%= f.input :start_date, as: :date, :label => "Start date" %>
+    </div>
+
+    <div class="input">
+      <%= f.input :end_date, as: :date, :label => "End date" %>
+    </div>
+
+    <%= f.submit %>
+
+  <% end %>
+
+  <%= link_to booking_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to booking
+  <% end %>
+</div>
