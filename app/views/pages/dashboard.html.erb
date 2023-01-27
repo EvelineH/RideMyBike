@@ -1,7 +1,7 @@
 <div class="container text-center container-dashboard">
   <h2><strong>MY</strong> upcoming <strong>RIDES</strong></h2>
   <div class="index-container">
-    <div class="cards">
+    <div class="cards cards-dashboard">
       <% @user_bookings.each do |booking| %>
         <% case booking.status %>
           <% when nil %>
