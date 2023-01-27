@@ -1,3 +1,7 @@
+.bnt-:hover{
+  font-weight: bold;
+}
+
 .btn-flat {
   color: black;
   padding: 8px 24px;
@@ -9,6 +13,13 @@
 .btn-flat:hover {
   background: #BB342F;
   color: white;
+}
+
+.btn-accept {
+  background: #BB342F;
+  color: white;
+  transition: background 0.3s ease;
+  border-radius: 6px;
 }
 
 .btn-show {
@@ -31,6 +42,15 @@
 .btn-booking {
   background: #BB342F;
   color: white;
-  margin-top: 16px;
+  margin-top: 8px;
   margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+
+.btn-edit {
+  margin: 10px;
+  background: #BB342F;
+  color: white;
+  border-radius: 6px;
 }

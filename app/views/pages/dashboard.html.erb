@@ -1,5 +1,5 @@
 <div class="container text-center container-dashboard">
-  <h2><strong>MY</strong> upcoming <strong>RIDES</strong></h2>
+  <h2>My upcoming rides:</h2>
   <div class="index-container">
     <div class="cards">
       <% @user_bookings.each do |booking| %>
@@ -17,21 +17,21 @@
 
           <div class="card-bike-index">
               <h4 class="card-header">
-              <strong>MY RIDE</strong> on <%= booking.owner.first_name %> 's <strong>BIKE</strong>
+              My ride on <strong><%= booking.owner.first_name %> 's</strong> bike
               </h4>
               <div class="p-2">
                 <%= link_to booking.bike, class: "bike_link" do %>
                 <% if booking.bike.photo.attached? %>
                   <% image = booking.bike.photo.key %>
-                  <%=cl_image_tag(image, crop: :scale, class: "card-image-top")%>
+                  <%=cl_image_tag(image, crop: :scale, class: "card-image-top", style: "height: 150px; width: 200px")%>
                 <% else %>
                   <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "card-image-top")%>
                 <% end %>
         <% end %>
-                <h2>RIDE request</h2>
-                <h3 class=<%=@class%>><%=@status%></h3>
-                <h5><strong>RIDE</strong> start: <%= booking.start_date.day%> - <%= booking.start_date.month %></h5>
-                <h5><strong>RIDE</strong> end: <%= booking.end_date.day%> - <%= booking.end_date.month %></h5>
+                <h2>Ride request</h2>
+                <h4 class=<%=@class%>><%=@status%></h4>
+                <h5><strong>Ride</strong> start date: <%= booking.start_date.day%>-<%= booking.start_date.month %></h5>
+                <h5><strong>Ride</strong> end date: <%= booking.end_date.day%>-<%= booking.end_date.month %></h5>
               </div>
               <div class="card-footer">
                 <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-show btn-card btn-block" %>
@@ -40,7 +40,7 @@
       <% end %>
     </div>
   </div>
-  <h2>who <i>WANTS TO</i> <strong>RIDE MY BIKE</strong>s</h2>
+  <h2>Who wants to ride my bike</h2>
   <div class="index-container text-center">
     <% if @pending_bookings.empty? %>
       <div class="card-empty container">
@@ -66,9 +66,8 @@
           <div class=<%=@cardclass%>>
             <div class="card-header">
               <h5>
-                <%= booking.user.first_name%>
-                <%= booking.user.last_name %>
-                <strong><i>WANTS TO</i> RIDE MY </strong>
+                <strong><%= booking.user.first_name%> <%= booking.user.last_name %></strong>
+                wants to ride my
                 <%= booking.bike.name %>
               </h5>
             </div>
@@ -76,7 +75,7 @@
             <div class="p-2">
               <% if booking.bike.photo.attached? %>
                   <% image = booking.bike.photo.key %>
-                  <%=cl_image_tag(image, crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
+                  <%=cl_image_tag(image, crop: :scale, class: "card-image-booked-bike", style: "height: 150px; width: 200px")%>
                 <% else %>
                   <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
                 <% end %>
@@ -86,18 +85,18 @@
               <%# </ul> %>
             </div>
               <%# <div class="btn-block"> %>
-                <%= link_to "Accept", booking_path(booking.id, status: true), data: {turbo_method: :patch}, class: "btn btn-warning btn-block btn-card" %>
-                <%= link_to "Decline", booking_path(booking.id, status: false), data: {turbo_method: :patch}, class:"btn btn-info btn-card btn-block" %>
+                <%= link_to "Accept", booking_path(booking.id, status: true), data: {turbo_method: :patch}, class: "btn btn-accept" %>
+                <%= link_to "Decline", booking_path(booking.id, status: false), data: {turbo_method: :patch}, class:"btn" %>
               <%# </div> %>
             <div class="card-footer">
-              <%= link_to "More about this booking", booking_path(booking.id), class: "bike_link btn btn-flat btn-card btn-block" %>
+              <%= link_to "More about this booking", booking_path(booking.id), class: "bike_link btn" %>
             </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-  <h2>who is <strong>RIDE</strong>ing <strong>MY BIKE</strong>s</h2>
+  <h2>Who is riding my bike?</h2>
   <div class="index-container">
     <div class="cards">
       <% @received_bookings.each do |booking| %>
@@ -116,7 +115,7 @@
           <% @cardclass = "card-bike-index declined"%>
           <% end %>
         <div class=<%=@cardclass%>>
-          <h5 class="card-header"><%= booking.user.first_name%> <strong> RIDES MY </strong><%= booking.bike.name %></h5>
+          <h5 class="card-header"><strong><%= booking.user.first_name%></strong> rides my <%= booking.bike.name %></h5>
           <div class="p-2">
             <%# <% if booking.bike.photo.attached? %>
               <%# <% image = booking.bike.photo.key %>
@@ -125,17 +124,17 @@
               <%# <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
             <%# <% end %>
             <h4 class=<%=@class%>><%=@status%></h4>
-            <h5><strong>RIDE</strong> start: <%= booking.start_date.day%> - <%= booking.start_date.month %></h5>
-            <h5><strong>RIDE</strong> end: <%= booking.end_date.day%> - <%= booking.end_date.month %></h5>
+            <h5><strong>Ride</strong> start date: <%= booking.start_date.day%>-<%= booking.start_date.month %></h5>
+            <h5><strong>Ride</strong> end date: <%= booking.end_date.day%>-<%= booking.end_date.month %></h5>
           </div>
           <div class="card-footer">
-            <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-show btn-card btn-block" %>
+            <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-booking" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-  <h2> <strong>MY BIKE</strong>s</h2>
+  <h2> <strong>MY BIKES</strong></h2>
   <div class="index-container">
     <div class="cards">
       <% @owned_bikes.each do |bike| %>
@@ -146,7 +145,7 @@
           <div class="p-2">
             <% if bike.photo.attached? %>
               <% image = bike.photo.key %>
-              <%=cl_image_tag(image, crop: :scale, class: "img-thumbnail")%>
+              <%=cl_image_tag(image, crop: :scale)%>
             <% else %>
               <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail")%>
             <% end %>
@@ -156,8 +155,8 @@
             </ul>
           </div>
           <div class="card-footer">
-            <%= link_to "Edit bike listing", edit_bike_path(bike.id), class: "btn btn-booking btn-card"%>
-            <%= link_to "Delete this bike?", bike_path(bike.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-show-back btn-card"%>
+            <%= link_to "Edit bike listing", edit_bike_path(bike.id), class: "btn btn-edit"%>
+            <%= link_to "Delete this bike?", bike_path(bike.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn"%>
           </div>
         </div>
       <% end %>
