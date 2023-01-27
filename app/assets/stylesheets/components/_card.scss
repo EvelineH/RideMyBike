@@ -129,3 +129,26 @@
   color: #A44A3F;
   font-size: 24px;
 }
+
+
+// Card styling for Bike show page
+
+.card-body {
+  background-color: white;
+  width: 50%;
+  margin: 30px auto;
+  padding: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card-body-text {
+  background-color: white;
+  width: 80%;
+  margin: 30px auto;
+  padding: 8px;
+}
+
+.card-body h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
