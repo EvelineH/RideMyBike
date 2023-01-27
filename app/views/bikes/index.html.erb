@@ -1,5 +1,15 @@
 <div class="container text-center">
-  <h1 class="mb-4 mt-4">Book your bike in Amsterdam</h3>
+<h1 class="mb-4 mt-4">Book your bike in Amsterdam</h3>
+    <div class="searchbar">
+        <%= form_with url: bikes_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a bike"
+        %>
+        <%= submit_tag "Search", class: "btn btn-show-back" %>
+      <% end %>
+    </div>
   <div class="index-container">
     <div class="cards">
       <% @bikes.each do |bike| %>

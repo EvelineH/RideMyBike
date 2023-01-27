@@ -2,14 +2,33 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bikes = Bike.all
-    @markers = @bikes.geocoded.map do |bike|
-      {
-        lat: bike.latitude,
-        lng: bike.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {bike: bike}),
-        marker_html: render_to_string(partial: "marker")
-      }
+    if params[:query].present?
+      sql_query = <<~SQL
+        bikes.name @@ :query
+        OR bikes.address @@ :query
+        OR categories.name @@ :query
+        OR colors.name @@ :query
+        OR biketypes.name @@ :query
+      SQL
+      @bikes = Bike.joins(:biketype, :category, :color).where(sql_query, query: "%#{params[:query]}%")
+      @markers = @bikes.geocoded.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {bike: bike}),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    else
+      @bikes = Bike.all
+      @markers = @bikes.geocoded.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {bike: bike}),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
     end
   end
 
