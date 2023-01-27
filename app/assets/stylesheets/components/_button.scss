@@ -1,22 +1,22 @@
 .btn-flat {
   color: black;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 6px;
   background: #ffffff;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #A44A3F;
+  background: #BB342F;
   color: white;
 }
 
 .btn-show {
-  background: #A44A3F;
+  background: #BB342F;
   color: white;
-  width: 200px;
+  width: 60%;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .btn-show-back {
@@ -29,7 +29,7 @@
 }
 
 .btn-booking {
-  background: #A44A3F;
+  background: #BB342F;
   color: white;
   margin-top: 16px;
   margin-bottom: 8px;
