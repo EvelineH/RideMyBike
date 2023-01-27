@@ -3,20 +3,23 @@
   <% when nil %>
     <% @status = "Pending" %>
     <% @class = "text-warning" %>
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning alert-dismissable" role="alert">
       Don't finalise your plans just yet! The bike's owner has <strong>not confirmed</strong> your booking yet...
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% when true %>
     <% @status = "Confirmed" %>
     <% @class = "text-info" %>
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info alert-dismissable" role="alert">
       Your booking is accepted by the owner! <strong>Happy Biking!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% when false %>
     <% @status = "Declined" %>
     <% @class = "text-danger" %>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger alert-dismissable" role="alert">
       Your booking was <strong>declined</strong> by the owner, <strong>sorry!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
 
