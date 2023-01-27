@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :bikes
+  has_many :bikes, dependent: :destroy
   # bookings the User has made on someone else's bikes:
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   # bookings the user has received on the Bikes they've uploaded:
-  has_many :received_bookings, through: :bikes, source: :user
+  has_many :received_bookings, through: :bikes, source: :bookings
   has_one_attached :photo
 end

@@ -1,9 +1,9 @@
 .cards {
   border: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  margin-left: 16px;
   margin-right: 16px;
   margin-bottom: 16px;
   flex-grow: 1;
@@ -21,8 +21,13 @@
   }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1400px) {
+@media screen and (min-width: 992px) and (max-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

@@ -1,2 +1,36 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+<div class="container">
+<h1>Bookings#show</h1>
+<p>Find me in app/views/bookings/show.html.erb</p>
+
+<h1>STATUS</h1>
+<p>Geaccepteerd = TRUE</p>
+<p>Declined = FALSE</p>
+<p>default = nil</p>
+
+<h1>REQUEST</h1>
+<p>Processed = true</p>
+<p>NotProcessed = False</p>
+<p>default = false</p>
+
+
+<h2>Booking simulation 1:</h2>
+<p>Booking - status = nil</p>
+<p>Booking - request = false</p>
+<break>
+<p>Booking = pending; booking not reviewed by bike-owner</p>
+
+<h2>Booking simulation 2:</h2>
+<p>Booking - status = true</p>
+<p>Booking - request = true</p>
+<break>
+<p>Booking = processed; booking has been accepted by bike-owner</p>
+
+<h2>Booking simulation 3:</h2>
+<p>Booking - status = false</p>
+<p>Booking - request = true</p>
+<break>
+<p>Booking = processed; booking has been declined by bike-owner</p>
+</div>

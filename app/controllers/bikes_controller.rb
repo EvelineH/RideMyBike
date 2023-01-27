@@ -35,9 +35,9 @@ class BikesController < ApplicationController
     @bike = Bike.new(bike_params)
     @bike.user = current_user
     if @bike.save
-      redirect_to bikes_path(@bikes)
+      redirect_to bike_path(@bike)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +46,7 @@ class BikesController < ApplicationController
 
   def update
     @bike.update(bike_params)
+    @bike.save
     redirect_to bike_path(@bike)
   end
 

@@ -100,3 +100,32 @@
   font-weight: bold;
   margin-top: 5px;
 }
+
+// Card Styling for Booking Below
+// ##############################
+.booking-card {
+  overflow: hidden;
+  background-color: #ffffff;
+  padding-bottom: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.booking-header {
+  background-color: #A44A3F;
+  color: white;
+}
+
+.booking-header-middle {
+  background-color: #ffffff;
+}
+.col-booking {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.card-empty p {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #A44A3F;
+  font-size: 24px;
+}

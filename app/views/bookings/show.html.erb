@@ -1,38 +1,87 @@
-<h1>Booking request successful!</h1>
-
-<%= link_to "Back to all bikes", bikes_path, class:"btn btn-show mx-auto" %>
-
-
-<%# <div class="container">
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-
-<h1>STATUS</h1>
-<p>Geaccepteerd = TRUE</p>
-<p>Declined = FALSE</p>
-<p>default = nil</p>
-
-<h1>REQUEST</h1>
-<p>Processed = true</p>
-<p>NotProcessed = False</p>
-<p>default = false</p>
-
-
-<h2>Booking simulation 1:</h2>
-<p>Booking - status = nil</p>
-<p>Booking - request = false</p>
-<break>
-<p>Booking = pending; booking not reviewed by bike-owner</p>
-
-<h2>Booking simulation 2:</h2>
-<p>Booking - status = true</p>
-<p>Booking - request = true</p>
-<break>
-<p>Booking = processed; booking has been accepted by bike-owner</p>
-
-<h2>Booking simulation 3:</h2>
-<p>Booking - status = false</p>
-<p>Booking - request = true</p>
-<break>
-<p>Booking = processed; booking has been declined by bike-owner</p>
-</div> %>
+<div class="container text-center">
+  <% case @booking.status %>
+  <% when nil %>
+    <% @status = "Pending" %>
+    <% @class = "text-warning" %>
+    <div class="alert alert-warning" role="alert">
+      Don't finalise your plans just yet! The bike's owner has <strong>not confirmed</strong> your booking yet...
+    </div>
+  <% when true %>
+    <% @status = "Confirmed" %>
+    <% @class = "text-info" %>
+    <div class="alert alert-info" role="alert">
+      Your booking is accepted by the owner! <strong>Happy Biking!</strong>
+    </div>
+  <% when false %>
+    <% @status = "Declined" %>
+    <% @class = "text-danger" %>
+    <div class="alert alert-danger" role="alert">
+      Your booking was <strong>declined</strong> by the owner, <strong>sorry!</strong>
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="col-booking col-12 col-lg-4">
+      <div class="booking-card">
+        <div class="booking-header">
+          <h2>RIDE</h2>
+        </div>
+        <h4>Booking status:</h4>
+        <h3 class=<%=@class%>><%=@status%></h3>
+        <h4>Your ride will take place on:</h4>
+        <h3><%= @booking.start_date.day %> -
+          <%= @booking.start_date.month%> -
+          <%= @booking.start_date.year %>
+        </h3>
+        <h4>Please finish your ride before:</h4>
+        <h3><%= @booking.end_date.day%> -
+          <%= @booking.end_date.month %> -
+          <%= @booking.end_date.year %>
+        </h3>
+        <h4>Please return your bike to:</h4>
+        <h3><%= @booking.bike.address %></h3>
+        <div class="booking-footer">
+          <button type="button" class="btn btn-booking btn-block btn-lg">Extend booking</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-booking col-12 col-lg-4">
+      <div class="booking-card">
+        <div class="booking-header">
+          <h2>MY</h2>
+        </div>
+        <h4>You'll be riding:</h4>
+        <h3><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</h3>
+        <h4>bike!</h4>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail"%>
+        <div class="booking-footer">
+          <button type="button" class="btn btn-booking btn-block btn-lg">Contact me</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-booking col-12 col-lg-4">
+      <div class="booking-card">
+        <div class="booking-header">
+          <h2>BIKE</h2>
+        </div>
+        <h4>My name is:</h4>
+        <h3><%= @booking.bike.name %></h3>
+        <h4>I am:</h4>
+        <h3><%= @booking.bike.color.name %></h3>
+        <h4>I am a:</h4>
+        <h3><%= @booking.bike.category.name %></h3>
+        <h4>I can carry one:</h4>
+        <h3><%= @booking.bike.biketype.name %></h3>
+        <div class="booking-footer">
+          <button type="button" class="btn btn-booking btn-block btn-lg">Report issue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <% image = @booking.bike.photo.key.to_s %>
+      <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+    </div>
+  </div>
+</div>
