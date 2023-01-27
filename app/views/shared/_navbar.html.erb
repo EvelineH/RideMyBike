@@ -21,7 +21,11 @@
             <%= link_to "Book now", bikes_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle avatar-photo", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% else %>
             <%= image_tag "https://cdn-icons-png.flaticon.com/512/747/747376.png", class: "avatar dropdown-toggle logged-in", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Make new bike", new_bike_path, class: "dropdown-item" %>
               <%= link_to "See all bikes", bikes_path, class: "dropdown-item" %>
