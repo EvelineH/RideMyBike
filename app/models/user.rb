@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   # bookings the user has received on the Bikes they've uploaded:
   has_many :received_bookings, through: :bikes, source: :bookings
+  has_one_attached :photo
 end
