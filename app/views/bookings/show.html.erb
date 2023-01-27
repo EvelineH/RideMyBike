@@ -19,30 +19,40 @@
       Your booking was <strong>declined</strong> by the owner, <strong>sorry!</strong>
     </div>
   <% end %>
-  
+
   <div class="row">
     <div class="col-booking col-12 col-lg-4">
       <div class="booking-card">
         <div class="booking-header">
           <h2>RIDE</h2>
         </div>
-        <h4>Booking status:</h4>
-        <h3 class=<%=@class%>><%=@status%></h3>
-        <h4>Your ride will take place on:</h4>
-        <h3><%= @booking.start_date.day %> -
-          <%= @booking.start_date.month%> -
-          <%= @booking.start_date.year %>
-        </h3>
-        <h4>Please finish your ride before:</h4>
-        <h3><%= @booking.end_date.day%> -
-          <%= @booking.end_date.month %> -
-          <%= @booking.end_date.year %>
-        </h3>
-        <h4>Please return your bike to:</h4>
-        <h3><%= @booking.bike.address %></h3>
-        <div class="booking-footer">
-          <button type="button" class="btn btn-booking btn-block btn-lg">Extend booking</button>
-        </div>
+        <div class="booking-body">
+          <h4>Booking status:</h4>
+          <h3 class=<%=@class%>><%=@status%></h3>
+          <% if @booking.status == false %>
+            <h4>Your ride can not take place</h4>
+            <h3> *sad face* </h3>
+          <div class="booking-footer">
+            <%= link_to "Change booking ?", bikes_path, class:"btn btn-booking btn-block btn-lg" %>
+          </div>
+          <% else %>
+            <h4>Your ride will take place on:</h4>
+            <h3><%= @booking.start_date.day %> -
+              <%= @booking.start_date.month%> -
+              <%= @booking.start_date.year %>
+            </h3>
+            <h4>Please finish your ride before:</h4>
+            <h3><%= @booking.end_date.day%> -
+              <%= @booking.end_date.month %> -
+              <%= @booking.end_date.year %>
+            </h3>
+            <h4>Please return your bike to:</h4>
+            <h3><%= @booking.bike.address %></h3>
+          </div>
+          <div class="booking-footer">
+            <%= link_to "Extend booking ?", edit_booking_path(@booking.id), class:"btn btn-booking btn-block btn-lg" %>
+          <% end %>
+          </div>
       </div>
     </div>
     <div class="col-booking col-12 col-lg-4">
@@ -50,10 +60,15 @@
         <div class="booking-header">
           <h2>MY</h2>
         </div>
-        <h4>You'll be riding:</h4>
+        <% if @booking.status == false %>
+          <h4>You <i>won't</i> be riding</h4>
+        <% else %>
+          <h4>You'll be riding:</h4>
+        <% end%>
         <h3><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</h3>
-        <h4>bike!</h4>
+        <h4>bike</h4>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail"%>
+
         <div class="booking-footer">
           <button type="button" class="btn btn-booking btn-block btn-lg">Contact me</button>
         </div>
