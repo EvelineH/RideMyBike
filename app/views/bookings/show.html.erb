@@ -3,20 +3,23 @@
   <% when nil %>
     <% @status = "Pending" %>
     <% @class = "text-warning" %>
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning alert-dismissable" role="alert">
       Don't finalise your plans just yet! The bike's owner has <strong>not confirmed</strong> your booking yet...
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% when true %>
     <% @status = "Confirmed" %>
     <% @class = "text-info" %>
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info alert-dismissable" role="alert">
       Your booking is accepted by the owner! <strong>Happy Biking!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% when false %>
     <% @status = "Declined" %>
     <% @class = "text-danger" %>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger alert-dismissable" role="alert">
       Your booking was <strong>declined</strong> by the owner, <strong>sorry!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
 
@@ -67,10 +70,13 @@
         <% end%>
         <h3><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</h3>
         <h4>bike</h4>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail"%>
-
+        <% if @booking.owner.photo.attached? %>
+          <%= cl_image_tag(@booking.owner.photo.key, crop: :thumb, gravity: :face, class: "avatar-large") %>
+        <% else %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/747/747376.png", class: "avatar-large logged-in" %>
+        <% end %>
         <div class="booking-footer">
-          <button type="button" class="btn btn-booking btn-block btn-lg">Contact me</button>
+          <button type="button" class="btn btn-booking btn-block btn-lg">Contact <%= @booking.owner.first_name%></button>
         </div>
       </div>
     </div>
@@ -98,8 +104,6 @@
       <% if @booking.bike.photo.attached? %>
         <% image = @booking.bike.photo.key %>
         <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
-      <% else %>
-        <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :limit, style:"width: 80%")%>
       <% end %>
     </div>
   </div>

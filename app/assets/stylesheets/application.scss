@@ -8,15 +8,22 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "components/index";
-@import "components/button";
-@import "components/card";
-
-@import "components/navbar";
-@import "components/footer";
-
 @import "pages/index";
 @import "pages/home";
+@import "pages/show";
 
+@import "components/alert";
+@import "components/avatar";
+@import "components/button";
+@import "components/card";
+@import "components/cards";
+@import "components/container";
+@import "components/flexbox";
+@import "components/footer";
+@import "components/form_legend_clear";
 @import "components/form";
-
+@import "components/index";
+@import "components/map";
+@import "components/marker";
+@import "components/navbar";
+@import "components/wrapper";

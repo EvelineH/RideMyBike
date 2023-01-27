@@ -2,7 +2,7 @@
   border: none;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-right: 16px;
   margin-bottom: 16px;
@@ -28,6 +28,6 @@
 }
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
