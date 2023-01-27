@@ -70,10 +70,13 @@
         <% end%>
         <h3><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</h3>
         <h4>bike</h4>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail"%>
-
+        <% if @booking.owner.photo.attached? %>
+          <%= cl_image_tag(@booking.owner.photo.key, crop: :thumb, gravity: :face, class: "avatar-large") %>
+        <% else %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/747/747376.png", class: "avatar-large logged-in" %>
+        <% end %>
         <div class="booking-footer">
-          <button type="button" class="btn btn-booking btn-block btn-lg">Contact me</button>
+          <button type="button" class="btn btn-booking btn-block btn-lg">Contact <%= @booking.owner.first_name%></button>
         </div>
       </div>
     </div>
@@ -98,8 +101,10 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <% image = @booking.bike.photo.key.to_s %>
+    <% if @booking.bike.photo.attached? %>
+      <% image = @booking.bike.photo.key %>
       <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+    <% end %>
     </div>
   </div>
 </div>
