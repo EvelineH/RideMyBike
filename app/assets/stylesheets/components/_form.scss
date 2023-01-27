@@ -4,11 +4,30 @@
   background-color: white;
   width: 50%;
   margin: 50px auto;
-  padding: 8px;
+  padding: 15px;
   border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.edit_bike {
+  background-color: white;
+  width: 50%;
+  margin: 50px auto;
+  padding: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .input {
   width: 100%;
   box-sizing: border-box;
+}
+
+
+.new_booking {
+  background-color: white;
+  width: 80%;
+  margin: 10px auto;
+  padding: 8px;
+  border-radius: 2px;
 }

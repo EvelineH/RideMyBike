@@ -9,11 +9,13 @@
       <% image = @bike.photo.key.to_s %>
       <%=cl_image_tag(image, crop: :lpad, class: "grid-item")%>
     </div>
+
     <div class="card-body">
-      <h1><%= @bike.name %> of <%= @bike.user.first_name%> <%= @bike.user.last_name %></h1>
-      <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
-      <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
-      <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
+      <div class="card-body-text">
+        <h1><%= @bike.name %> of <%= @bike.user.first_name%> <%= @bike.user.last_name %></h1>
+        <p class="card-text">Category:<strong> <%= @bike.category.name %></strong></p>
+        <p class="card-text">Size:<strong> <%= @bike.biketype.name %></strong></p>
+        <p class="card-text">Color:<strong> <%= @bike.color.name %></strong></p>
     </div>
       <%# <div class="bg-transparent btn-group" role="group" aria-label="Basic example"> %>
       <%# <%= link_to "Delete this bike",
@@ -27,4 +29,5 @@
       <%# <%= link_to "Back to all bikes", bikes_path, class:"btn btn-show-back mx-auto" %>
       <%= render "bookings/form", booking: @booking %>
       <%= render "shared/flashes" %>
+    </div>
 </div>
