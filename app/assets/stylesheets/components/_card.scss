@@ -88,6 +88,7 @@
   height: 250px;
   width: 100%;
   opacity: 0.9;
+  margin-bottom: 10px;
 }
 
 .card-footer {
@@ -111,13 +112,14 @@
 }
 
 .booking-header {
-  background-color: #A44A3F;
+  background-color: #BB342F;
   color: white;
 }
 
 .booking-header-middle {
   background-color: #ffffff;
 }
+
 .col-booking {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -126,7 +128,7 @@
 .card-empty p {
   margin-top: 40px;
   margin-bottom: 40px;
-  color: #A44A3F;
+  color: #BB342F;
   font-size: 24px;
 }
 
@@ -151,4 +153,20 @@
 .card-body h1 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+
+// # Card styling for Dashboard below
+// #########################################################################
+
+.card-img-booked-bike {
+  margin-bottom: 10px;
+}
+
+.card-header {
+  margin: 15px;
+}
+
+.card-footer {
+  margin: 10px;
 }

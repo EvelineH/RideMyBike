@@ -27,33 +27,33 @@
     <div class="col-booking col-12 col-lg-4">
       <div class="booking-card">
         <div class="booking-header">
-          <h2>RIDE</h2>
+          <h4>RIDE</h4>
         </div>
         <div class="booking-body">
-          <h4>Booking status:</h4>
-          <h3 class=<%=@class%>><%=@status%></h3>
+          <h6>Booking status:</h6>
+          <h4 class=<%=@class%>><%=@status%></h4>
           <% if @booking.status == false %>
-            <h4>Your ride can not take place</h4>
-            <h3> *sad face* </h3>
+            <h6>Your ride can not take place</h6>
+            <h5> *sad face* </h5>
           <div class="booking-footer">
-            <%= link_to "Change booking ?", bikes_path, class:"btn btn-booking btn-block btn-lg" %>
+            <%= link_to "Change booking ?", bikes_path, class:"btn btn-edit" %>
           </div>
           <% else %>
-            <h4>Your ride will take place on:</h4>
-            <h3><%= @booking.start_date.day %> -
+            <h6>Your ride will take place on:</h6>
+            <h4><strong><%= @booking.start_date.day %> -
               <%= @booking.start_date.month%> -
-              <%= @booking.start_date.year %>
-            </h3>
-            <h4>Please finish your ride before:</h4>
-            <h3><%= @booking.end_date.day%> -
+              <%= @booking.start_date.year %></strong>
+            </h4>
+            <h6>Please finish your ride before:</h6>
+            <h4><strong><%= @booking.end_date.day%> -
               <%= @booking.end_date.month %> -
-              <%= @booking.end_date.year %>
-            </h3>
-            <h4>Please return your bike to:</h4>
-            <h3><%= @booking.bike.address %></h3>
+              <%= @booking.end_date.year %></strong>
+            </h4>
+            <h6>Please return your bike to:</h6>
+            <h5><strong><%= @booking.bike.address %></strong></h5>
           </div>
           <div class="booking-footer">
-            <%= link_to "Extend booking ?", edit_booking_path(@booking.id), class:"btn btn-booking btn-block btn-lg" %>
+            <%= link_to "Extend booking ?", edit_booking_path(@booking.id), class:"btn btn-edit" %>
           <% end %>
           </div>
       </div>
@@ -61,40 +61,40 @@
     <div class="col-booking col-12 col-lg-4">
       <div class="booking-card">
         <div class="booking-header">
-          <h2>MY</h2>
+          <h4>MY</h4>
         </div>
         <% if @booking.status == false %>
-          <h4>You <i>won't</i> be riding</h4>
+          <h6>You <i>won't</i> be riding</h6>
         <% else %>
-          <h4>You'll be riding:</h4>
+          <h6>You'll be riding:</h6>
         <% end%>
-        <h3><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</h3>
-        <h4>bike</h4>
+        <h5><strong><%= @booking.owner.first_name%> <%= @booking.owner.last_name %>'s</strong></h5>
+        <h5>bike</h5>
         <% if @booking.owner.photo.attached? %>
           <%= cl_image_tag(@booking.owner.photo.key, crop: :thumb, gravity: :face, class: "avatar-large") %>
         <% else %>
           <%= image_tag "https://cdn-icons-png.flaticon.com/512/747/747376.png", class: "avatar-large logged-in" %>
         <% end %>
         <div class="booking-footer">
-          <button type="button" class="btn btn-booking btn-block btn-lg">Contact <%= @booking.owner.first_name%></button>
+          <button type="button" class="btn btn-edit">Contact <%= @booking.owner.first_name%></button>
         </div>
       </div>
     </div>
     <div class="col-booking col-12 col-lg-4">
       <div class="booking-card">
         <div class="booking-header">
-          <h2>BIKE</h2>
+          <h4>BIKE</h4>
         </div>
-        <h4>My name is:</h4>
-        <h3><%= @booking.bike.name %></h3>
-        <h4>I am:</h4>
-        <h3><%= @booking.bike.color.name %></h3>
-        <h4>I am a:</h4>
-        <h3><%= @booking.bike.category.name %></h3>
-        <h4>I can carry one:</h4>
-        <h3><%= @booking.bike.biketype.name %></h3>
+        <h6>My name is:</h6>
+        <h5><strong><%= @booking.bike.name %></strong></h5>
+        <h6>I am:</h6>
+        <h5><strong><%= @booking.bike.color.name %></strong></h5>
+        <h6>I am a:</h6>
+        <h5><strong><%= @booking.bike.category.name %></strong></h5>
+        <h6>I can carry one:</h6>
+        <h5><strong><%= @booking.bike.biketype.name %></strong></h5>
         <div class="booking-footer">
-          <button type="button" class="btn btn-booking btn-block btn-lg">Report issue</button>
+          <button type="button" class="btn btn-edit">Report issue</button>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
     <div class="col-12">
       <% if @booking.bike.photo.attached? %>
         <% image = @booking.bike.photo.key %>
-        <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+        <%= cl_image_tag(image, crop: :limit, style:"width: 60%") %>
       <% end %>
     </div>
   </div>
