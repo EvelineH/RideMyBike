@@ -21,9 +21,13 @@
               </h4>
               <div class="p-2">
                 <%= link_to booking.bike, class: "bike_link" do %>
-                  <% image = booking.bike.photo.key.to_s %>
-                  <%= cl_image_tag(image, crop: :scale, class: "card-image-top") %>
+                <% if booking.bike.photo.attached? %>
+                  <% image = booking.bike.photo.key %>
+                  <%=cl_image_tag(image, crop: :scale, class: "card-image-top")%>
+                <% else %>
+                  <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "card-image-top")%>
                 <% end %>
+        <% end %>
                 <h2>RIDE request</h2>
                 <h3 class=<%=@class%>><%=@status%></h3>
                 <h5><strong>RIDE</strong> start: <%= booking.start_date.day%> - <%= booking.start_date.month %></h5>
@@ -70,8 +74,12 @@
             </div>
               <h3 class=<%=@textclass%>><%=@status%></h3>
             <div class="p-2">
-              <% image = booking.bike.photo.key.to_s %>
-              <%= cl_image_tag(image, crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px") %>
+              <% if booking.bike.photo.attached? %>
+                  <% image = booking.bike.photo.key %>
+                  <%=cl_image_tag(image, crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
+                <% else %>
+                  <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
+                <% end %>
               <%# <ul class="card-bike-list"> %>
                 <%# <li><%= booking.bike.category.name%>
                 <%# <li>Suitable for:  <%= booking.bike.biketype.name%>
@@ -110,8 +118,12 @@
         <div class=<%=@cardclass%>>
           <h5 class="card-header"><%= booking.user.first_name%> <strong> RIDES MY </strong><%= booking.bike.name %></h5>
           <div class="p-2">
-            <%# <% image = booking.bike.photo.key.to_s %>
-            <%# <%= cl_image_tag(image, crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px") %>
+            <%# <% if booking.bike.photo.attached? %>
+              <%# <% image = booking.bike.photo.key %>
+              <%# <%=cl_image_tag(image, crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
+            <%# <% else %>
+              <%# <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail card-image-booked-bike", style: "height: 150px; width: 200px")%>
+            <%# <% end %>
             <h4 class=<%=@class%>><%=@status%></h4>
             <h5><strong>RIDE</strong> start: <%= booking.start_date.day%> - <%= booking.start_date.month %></h5>
             <h5><strong>RIDE</strong> end: <%= booking.end_date.day%> - <%= booking.end_date.month %></h5>
@@ -132,9 +144,12 @@
             <%= bike.name %>
           </h4>
           <div class="p-2">
-
-            <% image = bike.photo.key.to_s %>
-            <%= cl_image_tag(image, crop: :scale, class: "img-thumbnail") %>
+            <% if bike.photo.attached? %>
+              <% image = bike.photo.key %>
+              <%=cl_image_tag(image, crop: :scale, class: "img-thumbnail")%>
+            <% else %>
+              <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :scale, class: "img-thumbnail")%>
+            <% end %>
             <ul class="card-bike-list">
               <%# <li><%= bike.category.name</li>%>
               <%# <li>Suitable for:  <%= bike.biketype.name</li>%>

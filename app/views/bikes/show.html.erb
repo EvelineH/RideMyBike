@@ -6,8 +6,13 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <% image = @bike.photo.key.to_s %>
-      <%=cl_image_tag(image, crop: :lpad, class: "grid-item")%>
+      <% if @bike.photo.attached? %>
+        <% image = @bike.photo.key %>
+        <%=cl_image_tag(image, crop: :lpad, class: "grid-item")%>
+      <% else %>
+        <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :lpad, class: "grid-item")%>
+      <% end %>
+
     </div>
 
     <div class="card-body">

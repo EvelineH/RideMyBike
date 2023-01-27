@@ -95,8 +95,12 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <% image = @booking.bike.photo.key.to_s %>
-      <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+      <% if @booking.bike.photo.attached? %>
+        <% image = @booking.bike.photo.key %>
+        <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+      <% else %>
+        <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :limit, style:"width: 80%")%>
+      <% end %>
     </div>
   </div>
 </div>
