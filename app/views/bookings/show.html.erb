@@ -101,10 +101,10 @@
   </div>
   <div class="row">
     <div class="col-12">
-    <% if @booking.bike.photo.attached? %>
-      <% image = @booking.bike.photo.key %>
-      <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
-    <% end %>
+      <% if @booking.bike.photo.attached? %>
+        <% image = @booking.bike.photo.key %>
+        <%= cl_image_tag(image, crop: :limit, style:"width: 80%") %>
+      <% end %>
     </div>
   </div>
 </div>

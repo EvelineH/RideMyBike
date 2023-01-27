@@ -19,8 +19,12 @@
       <%= link_to bike, class: "col-12 col-m-4 col-lg-4 col-xl-3 bike_link" do %>
         <div class="card-bike">
         <div class= p-2>
-          <% image = bike.photo.key.to_s %>
-            <%= cl_image_tag(image, crop: :fill, style: "height: 300px; width: 100%; object-fit: cover") %>
+          <% if bike.photo.attached? %>
+            <% image = bike.photo.key %>
+            <%=cl_image_tag(image, crop: :fill, style: "height: 300px; width: 100%; object-fit: cover")%>
+          <% else %>
+            <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :fill, style: "height: 300px; width: 100%; object-fit: cover")%>
+          <% end %>
         </div>
         <div class="card-bike-infos">
           <div>
