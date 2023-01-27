@@ -12,8 +12,13 @@
 }
 
 .avatar-large {
-  width: 56px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+}
+
+.logged-in {
+  background-color: #A44A3F;
 }
 .avatar-bordered {
   width: 40px;
