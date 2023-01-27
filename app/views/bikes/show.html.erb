@@ -10,7 +10,7 @@
         <% image = @bike.photo.key %>
         <%=cl_image_tag(image, crop: :lpad, class: "grid-item")%>
       <% else %>
-        <%= image_tag("https://cdn-icons-png.flaticon.com/512/3875/3875172.png", crop: :lpad, class: "grid-item")%>
+        <%= image_tag("no_photo_placeholder.jpg", crop: :lpad, class: "grid-item")%>
       <% end %>
 
     </div>
