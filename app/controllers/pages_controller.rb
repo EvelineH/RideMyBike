@@ -1,14 +1,15 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
-  # before_action :set_bike, only: [:dashboard]
+  before_action :set_owned_bikes, only: :dashboard
+  before_action :set_user_bookings, only: :dashboard
+  before_action :set_received_bookings, only: :dashboard
+  before_action :set_pending_bookings, only: :dashboard
+
   def home
     @bikes = Bike.all
   end
 
   def dashboard
-    @owned_bikes = current_user.bikes
-    @bookings = current_user.bookings
-    @received_bookings = current_user.received_bookings
     @markers = @owned_bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,
@@ -21,7 +22,19 @@ class PagesController < ApplicationController
 
   private
 
-  # def set_bike
-    # @bike = Bike.where(params[current_user])
-  # end
+  def set_owned_bikes
+    @owned_bikes = current_user.bikes
+  end
+
+  def set_user_bookings
+    @user_bookings = current_user.bookings
+  end
+
+  def set_received_bookings
+    @received_bookings = current_user.received_bookings
+  end
+
+  def set_pending_bookings
+    @pending_bookings = current_user.received_bookings.where(status: nil)
+  end
 end

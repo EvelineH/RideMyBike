@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_bike, only: %i[new create]
+  before_action :set_booking, only: %i[show update destroy]
 
   def index
     @bookings = Booking.all
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,17 +30,20 @@ class BookingsController < ApplicationController
   def update
     @booking.status = params[:status]
     @booking.save
+    redirect_to dashboard_path
   end
 
-  def accept
-    @booking.status = params[:status]
-    @booking.save
+  def destroy
   end
 
   private
 
   def set_bike
     @bike = Bike.find(params[:bike_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

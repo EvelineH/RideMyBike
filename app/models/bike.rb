@@ -1,9 +1,9 @@
 class Bike < ApplicationRecord
-  belongs_to :user
   belongs_to :biketype
   belongs_to :category
   belongs_to :color
-  has_many :users, through: :bookings
+  belongs_to :user
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
